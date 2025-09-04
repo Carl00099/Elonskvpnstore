@@ -3,223 +3,133 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WHATSAPP BOMBER BUG BOT V30LITE</title>
+<title>ELONSK VPN STORE</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 <style>
 body {
-    margin: 0;
+    margin:0;
     font-family: 'Orbitron', sans-serif;
-    background: linear-gradient(135deg, #1a0000, #400000, #800000);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #fff;
-    overflow: hidden;
+    background: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
 }
 
 .container {
-    background: rgba(255, 0, 0, 0.1);
-    border: 2px solid #ff0000;
+    background: rgba(0,0,0,0.3);
     border-radius: 20px;
     padding: 40px;
-    text-align: center;
-    width: 90%;
-    max-width: 500px;
-    box-shadow: 0 0 20px #ff0000, 0 0 60px rgba(255,0,0,0.3);
+    text-align:center;
+    width:90%;
+    max-width:600px;
     backdrop-filter: blur(8px);
+    box-shadow: 0 0 30px #ff0000,0 0 60px rgba(255,0,0,0.3);
 }
 
 h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    background: linear-gradient(90deg, #ff0000, #ff5555, #ff0000);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size:2rem;
+    margin-bottom:20px;
+    background: linear-gradient(90deg,#ff0000,#ff5555,#ff0000);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
     animation: neonGlow 2s infinite alternate;
 }
 
 @keyframes neonGlow {
-    0% { text-shadow: 0 0 5px #ff0000, 0 0 20px #ff5555; }
-    100% { text-shadow: 0 0 20px #ff0000, 0 0 50px #ff5555; }
+    0% {text-shadow:0 0 5px #ff0000,0 0 20px #ff5555;}
+    100% {text-shadow:0 0 20px #ff0000,0 0 50px #ff5555;}
 }
 
-.tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.tab {
-    flex: 1;
-    padding: 10px;
-    margin: 0 5px;
-    background: rgba(255,0,0,0.2);
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.tab:hover {
-    background: rgba(255,0,0,0.5);
-    transform: scale(1.05);
-}
-
-input[type="text"] {
-    width: 80%;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #ff0000;
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 1rem;
-    outline: none;
-    background: rgba(0,0,0,0.3);
-    color: #fff;
-    transition: 0.3s;
-}
-
-input[type="text"]:focus {
-    border: 1px solid #ff5555;
-    box-shadow: 0 0 10px #ff5555;
+p {
+    margin:10px 0;
+    font-size:1rem;
 }
 
 button {
-    padding: 12px 25px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #fff;
-    background: linear-gradient(45deg, #ff0000, #ff5555);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 0 10px #ff0000, 0 0 30px #ff5555;
+    padding:12px 25px;
+    font-size:1rem;
+    font-weight:bold;
+    color:#fff;
+    background: linear-gradient(45deg,#ff0000,#ff5555);
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    margin:10px 0;
+    transition:0.3s;
+    box-shadow:0 0 10px #ff0000,0 0 30px #ff5555;
 }
 
 button:hover {
-    background: linear-gradient(45deg, #ff5555, #ff0000);
+    background: linear-gradient(45deg,#ff5555,#ff0000);
     transform: scale(1.05);
-    box-shadow: 0 0 20px #ff5555, 0 0 40px #ff0000;
+    box-shadow:0 0 20px #ff5555,0 0 40px #ff0000;
 }
 
-#log {
-    text-align: left;
-    margin-top: 20px;
-    max-height: 200px;
-    overflow-y: auto;
-    background: rgba(0,0,0,0.3);
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #ff0000;
-    font-family: monospace;
-    font-size: 0.9rem;
-    line-height: 1.3;
+.progress-container {
+    width:100%;
+    background: rgba(255,255,255,0.1);
+    border-radius:10px;
+    margin:20px 0;
+    height:25px;
+    overflow:hidden;
+    box-shadow:0 0 10px #ff0000;
 }
 
-#bombMessage {
-    display: none;
-    margin-top: 20px;
-    font-size: 1.1rem;
-    color: #ff0000;
-    font-weight: bold;
-    text-shadow: 0 0 10px #ff5555, 0 0 20px #ff0000;
-    animation: pulse 1s infinite alternate;
-}
-
-@keyframes pulse {
-    0% { text-shadow: 0 0 10px #ff5555, 0 0 20px #ff0000; }
-    100% { text-shadow: 0 0 20px #ff5555, 0 0 40px #ff0000; }
+.progress-bar {
+    height:100%;
+    width:0;
+    background: linear-gradient(90deg,#ff0000,#ff5555);
+    text-align:center;
+    line-height:25px;
+    transition:0.5s;
 }
 </style>
 </head>
 <body>
-
 <div class="container">
-    <h1>WHATSAPP BOMBER BUG BOT V30LITE</h1>
+    <h1>ELONSK VPN STORE</h1>
+    <p>Website under construction by Zimbabwean developer</p>
+    <p>Contact: +98913 618 6376 ELONSK CONTACT 🇿🇼</p>
     
-    <div class="tabs">
-        <div class="tab" id="homeTab">Home</div>
-        <div class="tab" id="settingsTab">Settings</div>
-        <div class="tab" id="helpTab">Help</div>
-    </div>
-    
-    <input type="text" placeholder="Insert Number (+263 Zimbabwe)" id="numberInput">
-    <br>
-    <button id="attackBtn">ATTACK BANN 🗿🔒🚫</button>
+    <!-- WhatsApp Group Button -->
+    <button id="joinGroupBtn">Join WhatsApp Group</button>
 
-    <div id="log"></div>
-    <div id="bombMessage">💣 BUGBOT MADE BY ELONSK TCH 🇿🇼💪</div>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar">ELONSK</div>
+    </div>
+
+    <!-- File Download Button -->
+    <a href="YOUR_FILE_LOCATION_HERE" download>
+        <button>Download VPN Config File</button>
+    </a>
 </div>
 
 <script>
-const log = document.getElementById('log');
-const attackBtn = document.getElementById('attackBtn');
-const bombMessage = document.getElementById('bombMessage');
-const homeTab = document.getElementById('homeTab');
-const settingsTab = document.getElementById('settingsTab');
-const helpTab = document.getElementById('helpTab');
-
+const progressBar = document.getElementById('progressBar');
+const joinGroupBtn = document.getElementById('joinGroupBtn');
 const WHATSAPP_GROUP = "https://chat.whatsapp.com/CsIWd4gshNAEVKEmC3uSIf?mode=ac_t";
 
-// Input validation
-function validateNumber(number) {
-    return /^\+263\d{9,10}$/.test(number);
-}
-
-// Simulated attack
-function simulateAttack(number) {
-    log.innerHTML = '';
-    const steps = [
-        `Connecting to WhatsApp servers...`,
-        `Initializing handshake TLS...`,
-        `Scanning media files...`,
-        `Injecting unknown payload...`,
-        `Simulating banning sequence...`,
-        `Erasing logs...`,
-        `Number ${number} eliminated! 🚫`
-    ];
-    let i = 0;
+// Simulate progress loading when "sharing" (demo)
+joinGroupBtn.addEventListener('click', () => {
+    let progress = 0;
     const interval = setInterval(() => {
-        if(i >= steps.length){
+        progress += 10;
+        if(progress > 100) {
             clearInterval(interval);
-            log.innerHTML += `<br>✅ Attack complete!`;
+            // Open WhatsApp group after progress finishes
+            window.open(WHATSAPP_GROUP,'_blank');
+            progressBar.style.width = '100%';
+            progressBar.innerText = 'ELONSK ✅';
             return;
         }
-        log.innerHTML += steps[i] + '<br>';
-        log.scrollTop = log.scrollHeight;
-        i++;
-    }, 1000);
-}
-
-// Button click
-attackBtn.addEventListener('click', () => {
-    const number = document.getElementById('numberInput').value.trim();
-    if(!number){
-        alert('Please enter a number!');
-        return;
-    }
-    if(!validateNumber(number)){
-        alert('Number must be a valid +263 Zimbabwe number with 10 digits!');
-        return;
-    }
-    simulateAttack(number);
-});
-
-// Tab actions
-homeTab.addEventListener('click', () => {
-    window.open(WHATSAPP_GROUP, '_blank');
-});
-
-settingsTab.addEventListener('click', () => {
-    window.open(WHATSAPP_GROUP, '_blank');
-});
-
-helpTab.addEventListener('click', () => {
-    bombMessage.style.display = 'block';
-    setTimeout(() => bombMessage.style.display = 'none', 5000); // hide after 5s
+        progressBar.style.width = progress + '%';
+        progressBar.innerText = 'ELONSK ' + progress + '%';
+    },500);
 });
 </script>
-
 </body>
 </html>
+
