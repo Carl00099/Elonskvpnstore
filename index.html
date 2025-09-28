@@ -3,89 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Site Closed - ELONSK</title>
+  <title>ELONSK Closure</title>
   <style>
     body {
       margin: 0;
       height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: radial-gradient(circle at center, #000 60%, #111 100%);
+      background: linear-gradient(135deg, #0a0a0f, #111, #1a1a22);
       font-family: Arial, sans-serif;
       color: white;
       overflow: hidden;
     }
 
-    .overlay {
+    .container {
+      display: flex;
+      height: 100%;
+      width: 100%;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 60px;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 0;
+      box-shadow: 2px 0 12px rgba(0,0,0,0.6);
+    }
+    .sidebar a {
+      color: #fff;
+      font-size: 22px;
+      margin: 20px 0;
+      text-decoration: none;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .sidebar a:hover {
+      transform: scale(1.3);
+      color: #00aaff;
+    }
+
+    /* Main content */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
       padding: 20px;
-      max-width: 600px;
+      overflow-y: auto;
     }
 
     /* ELONSK glowing title */
     .logo-aurora {
       position: relative;
-      text-align: center;
       margin-bottom: 32px;
     }
-
     .logo-text {
       font-size: 64px;
       font-weight: 900;
-      letter-spacing: 4px;
       color: #00aaff;
       text-shadow: 0 0 12px rgba(0,170,255,0.9),
                    0 0 24px rgba(0,170,255,0.6),
                    0 0 42px rgba(0,170,255,0.4);
       animation: glowPulse 2.5s ease-in-out infinite alternate;
     }
-
     @keyframes glowPulse {
       0% { text-shadow: 0 0 12px rgba(0,170,255,0.9), 0 0 24px rgba(0,170,255,0.6), 0 0 42px rgba(0,170,255,0.4);}
       100% { text-shadow: 0 0 22px rgba(255,60,100,1), 0 0 44px rgba(60,255,100,0.8), 0 0 66px rgba(100,60,255,0.9);}
     }
 
-    /* Aura glowing rings */
-    .aura {
-      position: absolute;
-      top: 50%; left: 50%;
-      width: 260px; height: 260px;
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-    }
-    .aura1 {
-      border: 2px solid rgba(255,0,0,0.6);
-      animation: spin 8s linear infinite;
-      box-shadow: 0 0 30px rgba(255,0,0,0.6);
-    }
-    .aura2 {
-      border: 2px solid rgba(0,255,0,0.6);
-      animation: spinReverse 10s linear infinite;
-      box-shadow: 0 0 30px rgba(0,255,0,0.6);
-    }
-    .aura3 {
-      border: 2px solid rgba(0,100,255,0.6);
-      animation: spin 12s linear infinite;
-      box-shadow: 0 0 30px rgba(0,100,255,0.6);
-    }
-
-    @keyframes spin {
-      from { transform: translate(-50%, -50%) rotate(0deg); }
-      to { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-    @keyframes spinReverse {
-      from { transform: translate(-50%, -50%) rotate(360deg); }
-      to { transform: translate(-50%, -50%) rotate(0deg); }
-    }
-
-    /* Closure message card */
+    /* Closure card */
     .card {
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(255,255,255,0.05);
       padding: 20px;
       border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.8);
+      box-shadow: 0 0 15px rgba(0,0,0,0.8);
       margin-bottom: 20px;
     }
 
@@ -103,7 +96,7 @@
       transition: transform 0.3s, color 0.3s;
     }
     .icons a:hover {
-      transform: scale(1.2);
+      transform: scale(1.3);
       color: #00aaff;
     }
 
@@ -117,44 +110,101 @@
       text-decoration: none;
       font-weight: bold;
       transition: background 0.3s;
+      margin-top: 10px;
     }
-    .btn:hover {
-      background: #0077cc;
+    .btn:hover { background: #0077cc; }
+
+    /* Econet full page */
+    .econet-page {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #0c0c12;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      padding: 20px;
+    }
+    .econet-card {
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 12px;
+      width: 300px;
+      text-align: center;
+      margin: 12px 0;
+      box-shadow: 0 0 15px rgba(0,0,0,0.7);
+    }
+    .econet-card h3 { margin: 10px 0; }
+    .econet-card p { margin: 6px 0; }
+    .close-btn {
+      margin-top: 20px;
+      background: red;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #fff;
     }
   </style>
-  <!-- Font Awesome for icons -->
   <script src="https://kit.fontawesome.com/4d9a47c16b.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="overlay">
-
-    <!-- Animated ELONSK -->
-    <div class="logo-aurora">
-      <h1 class="logo-text">ELONSK</h1>
-      <div class="aura aura1"></div>
-      <div class="aura aura2"></div>
-      <div class="aura aura3"></div>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <a href="#" onclick="openEconet()"><i class="fas fa-network-wired"></i></a>
     </div>
 
-    <!-- Closure message -->
-    <div class="card">
-      <p>⚠️ This site has been <b>flagged by Google as dangerous</b>.  
-      We will bring it back <b>tomorrow</b>. Sorry guys!</p>
-      <p>For more news and updates, click the icons below 👇</p>
+    <!-- Main content -->
+    <div class="main">
+      <div class="logo-aurora">
+        <h1 class="logo-text">ELONSK</h1>
+      </div>
+
+      <div class="card">
+        <p>⚠️ This site has been <b>flagged by Google as dangerous</b>.  
+        It will return <b>tomorrow</b>. Sorry guys!</p>
+        <p>For more news and updates, click the icons below 👇</p>
+      </div>
+
+      <div class="icons">
+        <a href="https://chat.whatsapp.com/XXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://chat.whatsapp.com/XXXX" target="_blank"><i class="fab fa-telegram"></i></a>
+        <a href="https://chat.whatsapp.com/XXXX" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://chat.whatsapp.com/XXXX" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://chat.whatsapp.com/XXXX" target="_blank"><i class="fab fa-google-play"></i></a>
+      </div>
+
+      <a class="btn" href="https://whatsapp.com/channel/0029Vb5xkBR4inojmTL" target="_blank">Request to Bring Back Site</a>
     </div>
-
-    <!-- Icons (all hidden WhatsApp links) -->
-    <div class="icons">
-      <a href="https://chat.whatsapp.com/XXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://chat.whatsapp.com/XXXX" target="_blank"><i class="fab fa-telegram"></i></a>
-      <a href="https://chat.whatsapp.com/XXXX" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://chat.whatsapp.com/XXXX" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://chat.whatsapp.com/XXXX" target="_blank"><i class="fab fa-google-play"></i></a>
-    </div>
-
-    <!-- Button to request back site -->
-    <a class="btn" href="https://whatsapp.com/channel/0029Vb5xkBR4inojmTL" target="_blank">Request to Bring Back Site</a>
-
   </div>
+
+  <!-- Econet page -->
+  <div class="econet-page" id="econetPage">
+    <h2>🌐 Econet New Host - NPV Cloud</h2>
+    <div class="econet-card">
+      <i class="fas fa-server" style="font-size:40px;color:#00aaff;"></i>
+      <h3>$1 - 2 Days Access</h3>
+      <p>Premium NPV Cloud Config</p>
+      <a class="btn" href="https://whatsapp.com/channel/0029Vb5xkBR4inojmTL" target="_blank">Purchase</a>
+    </div>
+    <div class="econet-card">
+      <i class="fas fa-server" style="font-size:40px;color:#00ff88;"></i>
+      <h3>$3 - 1 Week Access</h3>
+      <p>VIP NPV Cloud Config</p>
+      <a class="btn" href="https://whatsapp.com/channel/0029Vb5xkBR4inojmTL" target="_blank">Purchase</a>
+    </div>
+    <a href="#" class="close-btn" onclick="closeEconet()">Close</a>
+  </div>
+
+  <script>
+    function openEconet() {
+      document.getElementById('econetPage').style.display = 'flex';
+    }
+    function closeEconet() {
+      document.getElementById('econetPage').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
