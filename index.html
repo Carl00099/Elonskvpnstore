@@ -1,215 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>WHATSAPP UNBANNE TOOL — TEMPORARY CLOSURE</title>
-<style>
-  :root{
-    --accent:#2ee07f;
-    --glow:#00aaff;
-    --bg:#00130d;
-    --muted:#9fe8b9;
-    --white:#e6fff0;
-  }
-  html,body{height:100%;margin:0;font-family: "Segoe UI", Tahoma, sans-serif;background:radial-gradient(circle,#001d12,#000);color:var(--white);}
-  /* Main content kept (hidden behind overlay) */
-  #app-content{opacity:0.08;pointer-events:none;filter:blur(2px);min-height:100vh;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Closed - ELONSK</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at center, #000 60%, #111 100%);
+      font-family: Arial, sans-serif;
+      color: white;
+      overflow: hidden;
+    }
 
-  /* Fullscreen overlay */
-  .closure-overlay{
-    position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;
-    background:linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.7));
-    backdrop-filter: blur(6px) saturate(120%);
-    padding:28px;
-  }
+    .overlay {
+      text-align: center;
+      padding: 20px;
+      max-width: 600px;
+    }
 
-  .card{
-    width:100%;max-width:920px;border-radius:14px;padding:26px 26px 20px 26px;
-    background: linear-gradient(180deg, rgba(2,30,22,0.9), rgba(0,14,10,0.92));
-    box-shadow:0 18px 60px rgba(0,0,0,0.65),0 4px 18px rgba(0,170,255,0.04);
-    border:1px solid rgba(46,224,127,0.06);
-    color:var(--white);
-    display:flex;gap:18px;align-items:center;
-    transform:translateY(0);
-  }
+    /* ELONSK glowing title */
+    .logo-aurora {
+      position: relative;
+      text-align: center;
+      margin-bottom: 32px;
+    }
 
-  .left{
-    flex:1;min-width:240px;
-  }
-  .right{
-    width:320px;display:flex;flex-direction:column;align-items:center;gap:12px;
-  }
+    .logo-text {
+      font-size: 64px;
+      font-weight: 900;
+      letter-spacing: 4px;
+      color: #00aaff;
+      text-shadow: 0 0 12px rgba(0,170,255,0.9),
+                   0 0 24px rgba(0,170,255,0.6),
+                   0 0 42px rgba(0,170,255,0.4);
+      animation: glowPulse 2.5s ease-in-out infinite alternate;
+    }
 
-  h1{margin:0 0 6px 0;color:var(--accent);text-shadow:0 0 12px rgba(46,224,127,0.12);font-size:20px;}
-  p.lead{margin:6px 0 12px 0;color:#cfeee4;font-size:15px;line-height:1.35;}
-  p.small{margin:8px 0 0 0;color:var(--muted);font-size:13px;}
+    @keyframes glowPulse {
+      0% { text-shadow: 0 0 12px rgba(0,170,255,0.9), 0 0 24px rgba(0,170,255,0.6), 0 0 42px rgba(0,170,255,0.4);}
+      100% { text-shadow: 0 0 22px rgba(255,60,100,1), 0 0 44px rgba(60,255,100,0.8), 0 0 66px rgba(100,60,255,0.9);}
+    }
 
-  .big-note{
-    margin-top:8px;
-    padding:12px;border-radius:10px;background:linear-gradient(90deg, rgba(255,80,80,0.06), rgba(0,0,0,0.03));
-    border:1px solid rgba(255,80,80,0.08);
-    color:#ffd6d6;font-weight:700;font-size:14px;
-  }
+    /* Aura glowing rings */
+    .aura {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    .aura1 {
+      border: 2px solid rgba(255,0,0,0.6);
+      animation: spin 8s linear infinite;
+      box-shadow: 0 0 30px rgba(255,0,0,0.6);
+    }
+    .aura2 {
+      border: 2px solid rgba(0,255,0,0.6);
+      animation: spinReverse 10s linear infinite;
+      box-shadow: 0 0 30px rgba(0,255,0,0.6);
+    }
+    .aura3 {
+      border: 2px solid rgba(0,100,255,0.6);
+      animation: spin 12s linear infinite;
+      box-shadow: 0 0 30px rgba(0,100,255,0.6);
+    }
 
-  /* Icons area */
-  .icons{
-    display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;
-  }
-  .icon-btn{
-    width:62px;height:62px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;
-    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.05));
-    border:1px solid rgba(255,255,255,0.04);cursor:pointer;transition:all .22s;text-decoration:none;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-  }
-  .icon-btn:hover{transform:translateY(-6px) scale(1.04);box-shadow:0 18px 40px rgba(0,0,0,0.7), 0 0 18px rgba(0,170,255,0.06);}
-  .icon-svg{width:34px;height:34px;filter:drop-shadow(0 6px 18px rgba(0,0,0,0.6));}
+    @keyframes spin {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    @keyframes spinReverse {
+      from { transform: translate(-50%, -50%) rotate(360deg); }
+      to { transform: translate(-50%, -50%) rotate(0deg); }
+    }
 
-  /* Hidden link label (screen reader) */
-  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+    /* Closure message card */
+    .card {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.8);
+      margin-bottom: 20px;
+    }
 
-  /* request button */
-  .bring-back{
-    display:inline-block;padding:12px 18px;border-radius:12px;background:linear-gradient(90deg,var(--accent),#18b85a);
-    color:#00220f;font-weight:900;border:none;cursor:pointer;font-size:15px;text-decoration:none;transition:transform .18s,box-shadow .18s;
-    box-shadow:0 10px 30px rgba(46,224,127,0.12);
-  }
-  .bring-back:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(46,224,127,0.18);}
+    /* Icons row */
+    .icons {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin: 20px 0;
+    }
+    .icons a {
+      font-size: 28px;
+      color: #fff;
+      text-decoration: none;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .icons a:hover {
+      transform: scale(1.2);
+      color: #00aaff;
+    }
 
-  /* location of small icons (cool places) */
-  .floating-left{
-    position:fixed;left:16px;top:18vh;display:flex;flex-direction:column;gap:10px;z-index:9998;
-  }
-  .floating-right{
-    position:fixed;right:16px;top:18vh;display:flex;flex-direction:column;gap:10px;z-index:9998;
-  }
-
-  /* tooltip */
-  .tooltip{font-size:12px;color:#bfeebb;margin-top:6px;opacity:0.95}
-
-  /* responsive */
-  @media(max-width:860px){
-    .card{flex-direction:column;align-items:stretch;}
-    .right{width:100%;}
-    .icons{justify-content:center;}
-    .floating-left,.floating-right{display:none;}
-  }
-</style>
+    /* Button */
+    .btn {
+      display: inline-block;
+      background: #00aaff;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #0077cc;
+    }
+  </style>
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/4d9a47c16b.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  <div class="overlay">
 
-<!-- THE ORIGINAL APP CONTENT (kept under overlay so you can restore later) -->
-<div id="app-content">
-  <!-- (The rest of your old site markup would live here — preserved but dimmed under the closure overlay) -->
-</div>
-
-<!-- CLOSURE OVERLAY -->
-<div class="closure-overlay" role="dialog" aria-labelledby="closure-title" aria-describedby="closure-desc">
-  <div class="card" role="document">
-    <div class="left">
-      <h1 id="closure-title">Site temporarily closed — flagged by Google</h1>
-      <p class="lead" id="closure-desc">
-        We detected that this site has been flagged by Google as <strong>dangerous/malicious</strong>. For safety and compliance we are taking the site offline temporarily.
-      </p>
-
-      <div class="big-note">We're sorry — we'll turn it back on tomorrow. Thank you for your patience.</div>
-
-      <p class="small" style="margin-top:12px;">
-        For latest news and updates, click any of the icons (they will open our WhatsApp channel).
-      </p>
-
-      <!-- Icons inline -->
-      <div class="icons" aria-hidden="false">
-        <!-- All icons link to the same WhatsApp channel (hidden link in each) -->
-        <a class="icon-btn" href="https://whatsapp.com/channel/0029VbBVpuzHltY7Yk3GZU0o" target="_blank" rel="noopener noreferrer" title="WhatsApp channel">
-          <!-- WhatsApp SVG -->
-          <svg class="icon-svg" viewBox="0 0 24 24" fill="#25D366" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M12.04 2.03c-5.52 0-9.98 4.46-9.98 9.98 0 1.76.46 3.48 1.33 5l-1.38 5.04 5.16-1.36c1.46.8 3.14 1.21 4.87 1.21 5.52 0 9.98-4.46 9.98-9.98S17.56 2.03 12.04 2.03zm-2.02 14.45c-.66 0-1.3-.15-1.88-.44l-.13-.06-2.84.76.76-2.76-.06-.15a7.07 7.07 0 0 1-.95-3.39c0-3.9 3.18-7.07 7.07-7.07 3.9 0 7.07 3.17 7.07 7.07 0 3.9-3.17 7.07-7.07 7.07z"/>
-            <path d="M17.32 14.7c-.28-.14-1.66-.82-1.92-.91-.26-.09-.45-.14-.64.14-.2.28-.77.91-.95 1.1-.17.19-.34.21-.62.07-1.38-.69-2.28-1.97-2.54-3.33-.03-.12 0-.23.08-.32.09-.09.2-.24.3-.36.09-.12.12-.2.19-.32.06-.11.03-.21-.02-.33-.05-.11-.64-1.54-.88-2.13-.23-.56-.47-.48-.64-.49-.17 0-.36-.01-.55-.01-.19 0-.5.07-.77.36-.27.29-1.05 1.03-1.05 2.5 0 1.47 1.08 2.89 1.23 3.09.16.2 2.13 3.27 5.17 4.46.72.31 1.28.5 1.72.64.72.23 1.37.2 1.88.12.57-.09 1.66-.68 1.9-1.34.24-.66.24-1.23.17-1.36-.07-.13-.25-.2-.52-.34z"/>
-          </svg>
-          <span class="sr-only">WhatsApp channel (hidden)</span>
-        </a>
-
-        <a class="icon-btn" href="https://whatsapp.com/channel/0029VbBVpuzHltY7Yk3GZU0o" target="_blank" rel="noopener noreferrer" title="Telegram (opens WhatsApp channel)">
-          <!-- Telegram SVG (blue) -->
-          <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#2AABEE" aria-hidden="true">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.7 7.3l-1.9 9.02c-.15.66-.54.82-1.07.52l-2.96-2.18-1.43 1.38c-.16.16-.29.29-.6.29l.22-3.09 5.62-5.07c.24-.21-.05-.33-.37-.12L7.5 12.6 5.22 11.72c-.6-.21-.61-.6.13-.89l10.34-3.98c.44-.17.82.12.57.69z"/>
-          </svg>
-          <span class="sr-only">Telegram link</span>
-        </a>
-
-        <a class="icon-btn" href="https://whatsapp.com/channel/0029VbBVpuzHltY7Yk3GZU0o" target="_blank" rel="noopener noreferrer" title="Facebook (opens WhatsApp channel)">
-          <!-- Facebook SVG -->
-          <svg class="icon-svg" viewBox="0 0 24 24" fill="#3b5998" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M22 12C22 6.48 17.52 2 12 2S2 6.48 2 12c0 4.84 3.44 8.84 7.94 9.76V14.7h-2.4v-2.7h2.4V9.9c0-2.37 1.44-3.66 3.52-3.66 1.02 0 2.08.18 2.08.18v2.28h-1.17c-1.15 0-1.5.71-1.5 1.44v1.74h2.56l-.41 2.7h-2.15v7.06C18.56 20.84 22 16.84 22 12z"/>
-          </svg>
-          <span class="sr-only">Facebook link</span>
-        </a>
-
-        <a class="icon-btn" href="https://whatsapp.com/channel/0029VbBVpuzHltY7Yk3GZU0o" target="_blank" rel="noopener noreferrer" title="LinkedIn (opens WhatsApp channel)">
-          <!-- LinkedIn SVG -->
-          <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077b5" aria-hidden="true">
-            <path d="M20.45 20.45h-3.55v-5.3c0-1.26-.02-2.87-1.75-2.87-1.76 0-2.03 1.38-2.03 2.78v5.4H9.57V9h3.4v1.56h.05c.47-.89 1.62-1.82 3.34-1.82 3.57 0 4.23 2.35 4.23 5.41v6.8zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.11 20.45H3.57V9h3.54v11.45z"/>
-          </svg>
-          <span class="sr-only">LinkedIn link</span>
-        </a>
-
-        <a class="icon-btn" href="https://whatsapp.com/channel/0029VbBVpuzHltY7Yk3GZU0o" target="_blank" rel="noopener noreferrer" title="Play Store (opens WhatsApp channel)">
-          <!-- Playstore-like SVG -->
-          <svg class="icon-svg" viewBox="0 0 24 24" fill="#34A853" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M3.2 2.8l14.8 9.2-6.4 3.8L3.2 2.8zM20.8 4.2l-6.8 7 6.8 7V4.2zM3.2 21.2l10.8-10 6 3.6-16.8 6.4z"/>
-          </svg>
-          <span class="sr-only">Play Store link</span>
-        </a>
-      </div>
+    <!-- Animated ELONSK -->
+    <div class="logo-aurora">
+      <h1 class="logo-text">ELONSK</h1>
+      <div class="aura aura1"></div>
+      <div class="aura aura2"></div>
+      <div class="aura aura3"></div>
     </div>
 
-    <div class="right" aria-hidden="false">
-      <div style="text-align:center">
-        <strong style="color:var(--accent);font-size:14px">Need it back?</strong>
-        <p style="margin:8px 0 14px 0;color:var(--muted);font-size:13px">Tap below to request a review and bring the site back online.</p>
-        <a class="bring-back" href="https://whatsapp.com/channel/0029VbBVpuzHltY7Yk3GZU0o" target="_blank" rel="noopener noreferrer">Request to Bring Back Site</a>
-      </div>
-
-      <div style="margin-top:10px;text-align:center;color:#cfeee4;font-size:13px">
-        <div class="tooltip">For more news & updates click the WhatsApp icon</div>
-      </div>
+    <!-- Closure message -->
+    <div class="card">
+      <p>⚠️ This site has been <b>flagged by Google as dangerous</b>.  
+      We will bring it back <b>tomorrow</b>. Sorry guys!</p>
+      <p>For more news and updates, click the icons below 👇</p>
     </div>
+
+    <!-- Icons (all hidden WhatsApp links) -->
+    <div class="icons">
+      <a href="https://chat.whatsapp.com/XXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://chat.whatsapp.com/XXXX" target="_blank"><i class="fab fa-telegram"></i></a>
+      <a href="https://chat.whatsapp.com/XXXX" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://chat.whatsapp.com/XXXX" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://chat.whatsapp.com/XXXX" target="_blank"><i class="fab fa-google-play"></i></a>
+    </div>
+
+    <!-- Button to request back site -->
+    <a class="btn" href="https://whatsapp.com/channel/0029Vb5xkBR4inojmTL" target="_blank">Request to Bring Back Site</a>
+
   </div>
-
-  <!-- floating icons: cool places -->
-  <div class="floating-left" aria-hidden="false">
-    <a class="icon-btn" href="https://whatsapp.com/channel/0029VbBVpuzHltY7Yk3GZU0o" target="_blank" rel="noopener noreferrer" title="WhatsApp">
-      <svg class="icon-svg" viewBox="0 0 24 24" fill="#25D366" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2.03c-5.52 0-9.98 4.46-9.98 9.98 0 1.76.46 3.48 1.33 5l-1.38 5.04 5.16-1.36c1.46.8 3.14 1.21 4.87 1.21 5.52 0 9.98-4.46 9.98-9.98S17.56 2.03 12.04 2.03zm-2.02 14.45c-.66 0-1.3-.15-1.88-.44l-.13-.06-2.84.76.76-2.76-.06-.15a7.07 7.07 0 0 1-.95-3.39c0-3.9 3.18-7.07 7.07-7.07 3.9 0 7.07 3.17 7.07 7.07 0 3.9-3.17 7.07-7.07 7.07z"/></svg>
-    </a>
-    <a class="icon-btn" href="https://whatsapp.com/channel/0029VbBVpuzHltY7Yk3GZU0o" target="_blank" rel="noopener noreferrer" title="Facebook">
-      <svg class="icon-svg" viewBox="0 0 24 24" fill="#3b5998" xmlns="http://www.w3.org/2000/svg"><path d="M22 12C22 6.48 17.52 2 12 2S2 6.48 2 12c0 4.84 3.44 8.84 7.94 9.76V14.7h-2.4v-2.7h2.4V9.9c0-2.37 1.44-3.66 3.52-3.66 1.02 0 2.08.18 2.08.18v2.28h-1.17c-1.15 0-1.5.71-1.5 1.44v1.74h2.56l-.41 2.7h-2.15v7.06C18.56 20.84 22 16.84 22 12z"/></svg>
-    </a>
-  </div>
-
-  <div class="floating-right" aria-hidden="false">
-    <a class="icon-btn" href="https://whatsapp.com/channel/0029VbBVpuzHltY7Yk3GZU0o" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-      <svg class="icon-svg" viewBox="0 0 24 24" fill="#0077b5" xmlns="http://www.w3.org/2000/svg"><path d="M20.45 20.45h-3.55v-5.3c0-1.26-.02-2.87-1.75-2.87-1.76 0-2.03 1.38-2.03 2.78v5.4H9.57V9h3.4v1.56h.05c.47-.89 1.62-1.82 3.34-1.82 3.57 0 4.23 2.35 4.23 5.41v6.8zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.11 20.45H3.57V9h3.54v11.45z"/></svg>
-    </a>
-    <a class="icon-btn" href="https://whatsapp.com/channel/0029VbBVpuzHltY7Yk3GZU0o" target="_blank" rel="noopener noreferrer" title="Play Store">
-      <svg class="icon-svg" viewBox="0 0 24 24" fill="#34A853" xmlns="http://www.w3.org/2000/svg"><path d="M3.2 2.8l14.8 9.2-6.4 3.8L3.2 2.8zM20.8 4.2l-6.8 7 6.8 7V4.2zM3.2 21.2l10.8-10 6 3.6-16.8 6.4z"/></svg>
-    </a>
-  </div>
-
-</div>
-
-<!-- small script to optionally hide overlay (admin only) -->
-<script>
-  // If you want to remove overlay programmatically (admin), use:
-  // document.querySelector('.closure-overlay').style.display = 'none';
-  // This file intentionally keeps the overlay visible for visitors.
-
-  // Accessibility: focus the bring-back button
-  (function(){
-    const bring = document.querySelector('.bring-back');
-    if(bring) bring.setAttribute('tabindex','0');
-  })();
-</script>
-
 </body>
 </html>
