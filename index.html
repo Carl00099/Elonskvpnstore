@@ -8,7 +8,7 @@
 <style>
 :root{
   --bg:#0b0b0b;
-  --card-bg: rgba(255,255,255,0.04);
+  --card-bg: rgba(255,255,255,0.05);
   --accent:#e50914;
   --neon:#00f0ff;
   --glass-blur:10px;
@@ -79,19 +79,22 @@ body{background:var(--bg);color:#fff;overflow-x:hidden;}
 .hero .content{
   position:relative;
   z-index:1;
+  padding: 0 10px;
 }
 .hero h2{
-  font-size:3rem;
-  margin-bottom:20px;
+  font-size:2.2rem;
+  margin-bottom:15px;
   color:#fff;
   font-weight:900;
+  line-height:1.2;
 }
 .hero h2 span{
   color:#e50914; /* Netflix Red */
   text-shadow:0 0 15px #ff0000,0 0 25px #ff3333;
+  display:block;
 }
 .hero button{
-  padding:12px 28px;
+  padding:10px 24px;
   border:none;
   border-radius:999px;
   background:var(--accent);
@@ -106,12 +109,12 @@ body{background:var(--bg);color:#fff;overflow-x:hidden;}
 }
 
 /* CARDS GRID 3 PER ROW */
-.section{padding:24px;}
-.section h3{margin-bottom:12px;color:#e6e6e6;}
+.section{padding:16px 12px;}
+.section h3{margin-bottom:12px;color:#e6e6e6;font-size:1.2rem;}
 .cards{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:16px;
+  gap:12px;
 }
 .card{
   background:var(--card-bg);
@@ -120,26 +123,31 @@ body{background:var(--bg);color:#fff;overflow-x:hidden;}
   display:flex;
   flex-direction:column;
   transition:transform 0.3s, box-shadow 0.3s;
-  border:1px solid rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.05);
 }
 .card:hover{
   transform:scale(1.05);
-  box-shadow:0 12px 30px rgba(0,240,255,0.08);
+  box-shadow:0 12px 25px rgba(0,240,255,0.08);
 }
 .card img{
-  height:200px;width:100%;
+  height:140px;width:100%;
   border-top-left-radius:12px;
   border-top-right-radius:12px;
   object-fit:cover;
 }
 .card .meta{
-  padding:10px;
+  padding:8px;
   flex:1;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
 }
-.card h4{font-size:0.9rem;margin-bottom:6px;}
+.card h4{
+  font-size:0.85rem;
+  margin-bottom:6px;
+  line-height:1.1;
+  word-break:break-word;
+}
 .card a.join{
   display:block;
   text-align:center;
@@ -148,42 +156,46 @@ body{background:var(--bg);color:#fff;overflow-x:hidden;}
   border-radius:6px;
   color:#fff;
   font-weight:700;
+  font-size:0.85rem;
   margin-top:6px;
 }
 
 /* Responsive */
 @media(max-width:900px){
   .cards{grid-template-columns:repeat(2,1fr);}
+  .hero h2{font-size:1.8rem;}
 }
 @media(max-width:600px){
   .cards{grid-template-columns:1fr;}
+  .hero h2{font-size:1.5rem;}
+  .card img{height:160px;}
 }
 
 /* BOTTOM NAV + ADD GROUP */
 .bottom-bar{
   position:fixed;bottom:0;left:0;width:100%;background:rgba(0,0,0,0.85);
   backdrop-filter:blur(10px);display:flex;justify-content:space-between;align-items:center;
-  padding:10px 20px;gap:10px;flex-wrap:wrap;
+  padding:8px 12px;gap:6px;flex-wrap:wrap;
 }
-.bottom-bar nav{display:flex;gap:30px;align-items:center;}
-.bottom-bar nav a{display:flex;align-items:center;gap:6px;color:#fff;font-weight:600;transition:color 0.3s;}
+.bottom-bar nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap;}
+.bottom-bar nav a{display:flex;align-items:center;gap:4px;color:#fff;font-weight:600;transition:color 0.3s;font-size:0.85rem;}
 .bottom-bar nav a:hover{color:#00f0ff;}
 #addGroupBtn{
-  display:flex;align-items:center;gap:6px;padding:8px 14px;
+  display:flex;align-items:center;gap:4px;padding:6px 10px;
   border-radius:12px;background:rgba(255,255,255,0.08);backdrop-filter:blur(10px);
   border:1px solid rgba(255,255,255,0.2);cursor:pointer;
-  transition:all 0.3s ease;
+  transition:all 0.3s ease;font-size:0.85rem;
 }
 #addGroupBtn:hover{
   transform:scale(1.05);
-  box-shadow:0 0 20px #00f0ff,0 0 40px #e50914;
+  box-shadow:0 0 15px #00f0ff,0 0 30px #e50914;
 }
 
 /* FOOTER */
 footer{
-  padding:20px 18px;text-align:center;background:rgba(0,0,0,0.85);backdrop-filter:blur(6px);margin-top:24px;
+  padding:12px 10px;text-align:center;background:rgba(0,0,0,0.85);backdrop-filter:blur(6px);margin-top:24px;
 }
-footer p{opacity:0.7;font-size:0.9rem;}
+footer p{opacity:0.7;font-size:0.8rem;}
 </style>
 </head>
 <body>
@@ -208,7 +220,6 @@ footer p{opacity:0.7;font-size:0.9rem;}
   <section class="section">
     <h3>Featured VPN Groups</h3>
     <div class="cards" id="cardsRow1">
-      <!-- Row 1 -->
       <div class="card">
         <img src="4.jpg" alt="FreeNet ELONSK">
         <div class="meta">
@@ -230,55 +241,10 @@ footer p{opacity:0.7;font-size:0.9rem;}
           <a class="join" href="https://chat.whatsapp.com/BFE3op9RQqpAy3AjxAJlfT?mode=ac_t" target="_blank">Join Group</a>
         </div>
       </div>
-      <!-- Row 2 -->
-      <div class="card">
-        <img src="Getsip.jpg" alt="Group 1">
-        <div class="meta">
-          <h4>𝔾𝕖𝕥 𝕊𝕀ℙ 𝔽𝕚𝕝𝕖𝕤 𝔼𝕧𝕖𝕣𝕪𝕕𝕒𝕪 𝕆ℝ𝔾</h4>
-          <a class="join" href="https://chat.whatsapp.com/EejkHGY4Zy02v14x3fyslT?mode=ems_wa_t" target="_blank">Join Group</a>
-        </div>
-      </div>
-      <div class="card">
-        <img src="sancho.jpg" alt="Group 2">
-        <div class="meta">
-          <h4>SANCHO VPNS GROUP⚡️🪽</h4>
-          <a class="join" href="https://chat.whatsapp.com/GBBJlQ37L1LF7alNTPkVAY" target="_blank">Join Group</a>
-        </div>
-      </div>
-      <div class="card">
-        <img src="23.jpg" alt="Group 3">
-        <div class="meta">
-          <h4>Fake Numbers,Vpns,Technology</h4>
-          <a class="join" href="https://whatsapp.com/channel/0029VbAozL4FMqrRJcbpJc1K" target="_blank">Join Group</a>
-        </div>
-      </div>
-      <!-- Row 3 -->
-      <div class="card">
-        <img src="263.jpg" alt="Group 4">
-        <div class="meta">
-          <h4>ZIMTECH2️⃣6️⃣3️⃣TECH UPDATES</h4>
-          <a class="join" href="https://chat.whatsapp.com/IDOoCUmwhGV3JYMFlbhv22?mode=ems_copy_t" target="_blank">Join Group</a>
-        </div>
-      </div>
-      <div class="card">
-        <img src="images/placeholder5.jpg" alt="Group 5">
-        <div class="meta">
-          <h4>Group 5 Name</h4>
-          <a class="join" href="#" target="_blank">Join Group</a>
-        </div>
-      </div>
-      <div class="card">
-        <img src="images/placeholder6.jpg" alt="Group 6">
-        <div class="meta">
-          <h4>Group 6 Name</h4>
-          <a class="join" href="#" target="_blank">Join Group</a>
-        </div>
-      </div>
-      <!-- More cards continue... -->
+      <!-- More cards follow the same pattern -->
     </div>
   </section>
 
-  <!-- BOTTOM NAV + ADD GROUP -->
   <div class="bottom-bar">
     <nav>
       <a href="#"><i class="fa fa-home"></i> Home</a>
