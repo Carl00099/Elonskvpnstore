@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NPV 7 DAYS CLOUDS </title>
+<title>NPV 7 DAYS CLOUDS</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root{
@@ -15,7 +15,6 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif;}
 body{background:var(--bg);color:#fff;overflow-x:hidden;}
-a{text-decoration:none;color:inherit;}
 
 /* SPLASH */
 #splash{
@@ -47,42 +46,109 @@ a{text-decoration:none;color:inherit;}
 @keyframes fadeIn{from{opacity:0}to{opacity:0.8}}
 #main{display:none;opacity:0;transition:opacity 1s ease;}
 
-/* HERO */
+/* HERO FULLSCREEN + GLASS */
 .hero{
-  height:350px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;
+  height:100vh;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
   position:relative;
+  background:rgba(0,0,0,0.3);
+  backdrop-filter:blur(10px);
+  overflow:hidden;
 }
 .hero img{
-  width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;z-index:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:0;
 }
 .hero::after{
-  content:"";position:absolute;inset:0;background:rgba(0,0,0,0.5);backdrop-filter:blur(6px);
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(10px);
 }
-.hero .content{position:relative;z-index:1;}
-.hero h2{font-size:2rem;margin-bottom:12px;text-shadow:0 0 20px green;}
+.hero .content{
+  position:relative;
+  z-index:1;
+}
+.hero h2{
+  font-size:3rem;
+  margin-bottom:20px;
+  color:#fff;
+  font-weight:900;
+}
+.hero h2 span{
+  color:#e50914; /* Netflix Red */
+  text-shadow:0 0 15px #ff0000,0 0 25px #ff3333;
+}
 .hero button{
-  padding:10px 24px;border:none;border-radius:999px;background:var(--accent);color:#fff;font-weight:700;
-  cursor:pointer;transition:transform 0.3s, background 0.3s;
+  padding:12px 28px;
+  border:none;
+  border-radius:999px;
+  background:var(--accent);
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+  transition:transform 0.3s, background 0.3s;
 }
-.hero button:hover{transform:scale(1.05);background:#ff1a2c;}
+.hero button:hover{
+  transform:scale(1.05);
+  background:#ff1a2c;
+}
 
-/* CARDS - GRID 2 per row vertical scroll */
+/* CARDS GRID 2 PER ROW */
 .section{padding:24px;}
 .section h3{margin-bottom:12px;color:#e6e6e6;}
 .cards{
   display:grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns:repeat(2,1fr);
   gap:16px;
 }
-.card{background:var(--card-bg);border-radius:12px;backdrop-filter:blur(var(--glass-blur));
-  display:flex;flex-direction:column;transition:transform 0.3s, box-shadow 0.3s;border:1px solid rgba(255,255,255,0.04);}
-.card:hover{transform:scale(1.05);box-shadow:0 12px 30px rgba(0,240,255,0.08);}
-.card img{height:280px;width:100%;border-top-left-radius:12px;border-top-right-radius:12px;object-fit:cover;}
-.card .meta{padding:10px;flex:1;display:flex;flex-direction:column;justify-content:space-between;}
+.card{
+  background:var(--card-bg);
+  border-radius:12px;
+  backdrop-filter:blur(var(--glass-blur));
+  display:flex;
+  flex-direction:column;
+  transition:transform 0.3s, box-shadow 0.3s;
+  border:1px solid rgba(255,255,255,0.04);
+}
+.card:hover{
+  transform:scale(1.05);
+  box-shadow:0 12px 30px rgba(0,240,255,0.08);
+}
+.card img{
+  height:280px;width:100%;
+  border-top-left-radius:12px;
+  border-top-right-radius:12px;
+  object-fit:cover;
+}
+.card .meta{
+  padding:10px;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
 .card h4{font-size:0.9rem;margin-bottom:6px;}
 .card a.join{
-  display:block;text-align:center;padding:6px 0;background:linear-gradient(90deg,var(--accent),#ff4343);
-  border-radius:6px;color:#fff;font-weight:700;margin-top:6px;
+  display:block;
+  text-align:center;
+  padding:6px 0;
+  background:linear-gradient(90deg,var(--accent),#ff4343);
+  border-radius:6px;
+  color:#fff;
+  font-weight:700;
+  margin-top:6px;
 }
 
 /* BOTTOM NAV + ADD GROUP */
@@ -126,7 +192,7 @@ footer p{opacity:0.7;font-size:0.9rem;}
   <section class="hero">
     <img src="23.jpg" alt="Hero Background">
     <div class="content">
-      <h2>Join the Best VPN Communities Worldwide 🌍</h2>
+      <h2>Join the Best <span>VPN Communities</span> Worldwide 🌍</h2>
       <button id="browseBtn">Browse Groups</button>
     </div>
   </section>
@@ -134,7 +200,7 @@ footer p{opacity:0.7;font-size:0.9rem;}
   <section class="section">
     <h3>Featured VPN Groups</h3>
     <div class="cards" id="cardsRow1">
-      <!-- Start with FreeNet first -->
+      <!-- Row 1 -->
       <div class="card">
         <img src="4.jpg" alt="FreeNet ELONSK">
         <div class="meta">
@@ -149,8 +215,9 @@ footer p{opacity:0.7;font-size:0.9rem;}
           <a class="join" href="https://whatsapp.com/channel/0029VbBVpuzHltY7Yk3GZU0o" target="_blank">Join Group</a>
         </div>
       </div>
+      <!-- Row 2 -->
       <div class="card">
-        <img src="3.jpg" alt="VIPS Only">
+        <img src="3.jpg" alt="VIPs Only">
         <div class="meta">
           <h4>🇿🇼 VIPS ONLY</h4>
           <a class="join" href="https://chat.whatsapp.com/BFE3op9RQqpAy3AjxAJlfT?mode=ac_t" target="_blank">Join Group</a>
@@ -163,6 +230,7 @@ footer p{opacity:0.7;font-size:0.9rem;}
           <a class="join" href="https://chat.whatsapp.com/EejkHGY4Zy02v14x3fyslT?mode=ems_wa_t" target="_blank">Join Group</a>
         </div>
       </div>
+      <!-- Row 3 -->
       <div class="card">
         <img src="sancho.jpg" alt="Group 2">
         <div class="meta">
@@ -177,7 +245,51 @@ footer p{opacity:0.7;font-size:0.9rem;}
           <a class="join" href="https://whatsapp.com/channel/0029VbAozL4FMqrRJcbpJc1K" target="_blank">Join Group</a>
         </div>
       </div>
-      <!-- Continue boxes 7-20 same way -->
+      <!-- Row 4 -->
+      <div class="card">
+        <img src="263.jpg" alt="Group 4">
+        <div class="meta">
+          <h4>ZIMTECH2️⃣6️⃣3️⃣TECH UPDATES</h4>
+          <a class="join" href="https://chat.whatsapp.com/IDOoCUmwhGV3JYMFlbhv22?mode=ems_copy_t" target="_blank">Join Group</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/placeholder5.jpg" alt="Group 5">
+        <div class="meta">
+          <h4>Group 5 Name</h4>
+          <a class="join" href="#" target="_blank">Join Group</a>
+        </div>
+      </div>
+      <!-- Row 5 -->
+      <div class="card">
+        <img src="images/placeholder6.jpg" alt="Group 6">
+        <div class="meta">
+          <h4>Group 6 Name</h4>
+          <a class="join" href="#" target="_blank">Join Group</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/placeholder7.jpg" alt="Group 7">
+        <div class="meta">
+          <h4>Group 7 Name</h4>
+          <a class="join" href="#" target="_blank">Join Group</a>
+        </div>
+      </div>
+      <!-- Row 6 -->
+      <div class="card">
+        <img src="images/placeholder8.jpg" alt="Group 8">
+        <div class="meta">
+          <h4>Group 8 Name</h4>
+          <a class="join" href="#" target="_blank">Join Group</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/placeholder9.jpg" alt="Group 9">
+        <div class="meta">
+          <h4>Group 9 Name</h4>
+          <a class="join" href="#" target="_blank">Join Group</a>
+        </div>
+      </div>
     </div>
   </section>
 
