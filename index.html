@@ -1,1 +1,92 @@
-n
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker Terminal</title>
+    <style>
+        /* Modern Hacker Gradient Background */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at center, #001a00 0%, #000000 100%);
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+        }
+
+        /* Scanline effect for that hacking site feel */
+        body::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 2;
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            z-index: 3;
+        }
+
+        /* 3D Text Styling */
+        .hacker-text {
+            font-size: 12vw; /* Scales with mobile width */
+            font-weight: 900;
+            color: #00ff41; /* Classic Matrix Green */
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            
+            /* Multi-layered shadow for 3D effect */
+            text-shadow: 
+                0 1px 0 #008f11,
+                0 2px 0 #008f11,
+                0 3px 0 #00750e,
+                0 4px 0 #00750e,
+                0 5px 0 #005c0b,
+                0 6px 1px rgba(0,0,0,.1),
+                0 0 5px rgba(0,255,65,.2),
+                0 1px 3px rgba(0,0,0,.3),
+                0 3px 5px rgba(0,0,0,.2),
+                0 5px 10px rgba(0,0,0,.25),
+                0 10px 10px rgba(0,0,0,.2),
+                0 20px 20px rgba(0,0,0,.15);
+            
+            animation: flicker 1.5s infinite alternate;
+        }
+
+        /* Subtle neon flicker animation */
+        @keyframes flicker {
+            0% { opacity: 0.9; }
+            100% { opacity: 1; text-shadow: 0 0 20px rgba(0, 255, 65, 0.6); }
+        }
+
+        .sub-text {
+            color: #00ff41;
+            font-size: 1rem;
+            margin-top: 20px;
+            opacity: 0.7;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="hacker-text">
+            ELONSK THE 🐐
+        </div>
+        <div class="sub-text">System_Access_Granted...</div>
+    </div>
+
+</body>
+</html>
+
